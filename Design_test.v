@@ -3,6 +3,7 @@ module combined_violations();
     wire [1:0] x;
     reg out;
     reg [1:0] state;
+    reg y;
     input clk;
     localparam [1:0] S1 = 2'b00 ;
     localparam [1:0] S2 = 2'b01 ;
@@ -12,20 +13,13 @@ module combined_violations();
     reg[1:0] y;
 
   // Unreachable Blocks
+    y = 1'b1;
     always @ (state) 
     begin
-        if (state == 2'b00) 
-        begin
-            data <= 1'b0;
-        end 
-        else if (state == 2'b10) 
+        if (y == 2'b0) 
         begin
             data <= 1'b1;
         end 
-        else if (state == 2'b11) 
-        begin
-
-        end
     end
 
         // Un-initialized Register
