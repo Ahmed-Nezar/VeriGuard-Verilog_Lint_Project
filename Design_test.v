@@ -3,8 +3,10 @@ module combined_violations();
     wire [1:0] x;
     reg out;
     reg [1:0] state;
-    reg y;
+    reg myReg;
     input clk;
+    input [1:0] myIn;
+    output myOut;
     localparam [1:0] S1 = 2'b00 ;
     localparam [1:0] S2 = 2'b01 ;
     localparam [1:0] S3 = 2'b10 ;
@@ -78,6 +80,19 @@ module combined_violations();
             2'b?0: y = 1'b10;
             default: y = 1'b11;
         endcase
+    end
+
+    //multiple drivers
+    assign myOut = myIn;
+    assign myOut = 0'b1;
+
+    always @(*)
+    begin
+        myReg = myReg + 1;
+    end
+    always @(*)
+    begin
+        myReg = 1'b0;
     end
 
 
