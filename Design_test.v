@@ -96,5 +96,11 @@ module combined_violations();
         myReg = 1'b0;
     end
 
+    //Arithmetic overflow
+    reg [3:0] a, b, result;
+     always @* begin
+        result = a + b; // Adding operands 'a' and 'b'
+    end
+
 
 endmodule
