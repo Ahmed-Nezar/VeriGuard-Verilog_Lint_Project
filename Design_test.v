@@ -13,6 +13,7 @@ module combined_violations();
     reg [1:0] current_state;
     reg [1:0] next_state;
     reg[1:0] y;
+    reg [31:0] res;
     reg reach;
 
   // Unreachable Blocks
@@ -102,5 +103,10 @@ module combined_violations();
         result = a + b; // Adding operands 'a' and 'b'
     end
 
+    //int overflow
+
+    always @* begin
+        res = 32'hffffffff + 32'h1; // Adding operands 'a' and 'b'
+    end
 
 endmodule
