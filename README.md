@@ -1,31 +1,14 @@
-# Verilog_Lint_Project
-## Project Description:
-### Project#1 Verilog Lint
-In this project the students will design static Verilog Design Checker, the checker will take Verilog (DUT) no Test Bench, and statically points to following List of Violations
-- Arithmetic Overflow
-- Unreachable Blocks
-- Unreachable FSM State
-- Un-initialized Register
-- Multi-Driven Bus/Register
-- Non Full/Parallel Case
-- Infer Latch
-#### Requirements
-- Select a name for your Verilog Linter
-- You should be able to parse Verilog code that can have different combinations of above
-constructs
-- Verilog should be single Flatten Modules, No Hierarchy, No Instantiation
-- Your Design should be only “Design Under Test” DUT no testbench is needed.
-#### Your Lint EDA Product should have
-- Parser
-- Static Checker Engine
-- Report Generator which produce a text file demonstrate
-- Checks Name
-- Line of Code it Happens in
-- Signals/Variables Impacted
-#### Evaluation
-- Student will demonstrate 3 Verilog Cases, demonstrates combination of the above HDL Constructs, and demonstrate Lint results, reports.
-- Their results will be compared with commercial linter as validation of results
-- Presentation demonstrates the design of 3 main blocks (parser, engine, debugger)
-- Teams will schedule a 20 minutes demo/slides using MS to deliver the project
-- Using whatever programming language you prefer or scripting language (Python, Perl, TCL,..)
-- You need to upload your executable, source code, document /slides describe the algorithm/approach used.
+# README for Combined Violations Verilog Module
+
+## Overview
+The `combined_violations` module is a Verilog code example designed for educational purposes. It demonstrates several common coding mistakes and violations in Verilog design. This module is not intended for practical use in real-world applications but serves as a learning tool for understanding some pitfalls in Verilog coding.
+
+## Violations Demonstrated
+The module showcases the following violations:
+1. **Arithmetic Overflow**: Occurs when the result of an arithmetic operation exceeds the capacity of the register storing the result.
+2. **Unreachable Blocks**: Code blocks that can never be executed due to the logic of the conditional statements.
+3. **Unreachable FSM State**: A state in a Finite State Machine (FSM) that cannot be reached due to missing state transitions.
+4. **Un-initialized Register**: Demonstrates the undefined behavior that can occur when registers are not initialized.
+5. **Multi-Driven Bus/Register**: Occurs when multiple sources drive the same signal, leading to conflicts.
+6. **Non Full/Parallel Case**: Highlights issues when not all possible cases are covered in a case statement.
+7. **Infer Latch**: Shows how unintentionally a latch can be inferred in the design.
