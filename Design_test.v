@@ -13,12 +13,13 @@ module combined_violations();
     reg [1:0] current_state;
     reg [1:0] next_state;
     reg[1:0] y;
+    reg reach;
 
   // Unreachable Blocks
-    y = 1'b1;
+    reach = 1'b1;
     always @ (state) 
     begin
-        if (y == 2'b0) 
+        if (reach == 2'b0) 
         begin
             data <= 1'b1;
         end 
