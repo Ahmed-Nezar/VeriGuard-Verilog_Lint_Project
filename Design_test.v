@@ -1,5 +1,6 @@
 module combined_violations();
     wire enable, Data;
+    wire [1:0] x;
     reg out;
     reg [1:0] state;
     input clk;
@@ -8,6 +9,7 @@ module combined_violations();
     localparam [1:0] S3 = 2'b10 ;
     reg [1:0] current_state;
     reg [1:0] next_state;
+    reg[1:0] y;
 
   // Unreachable Blocks
     always @ (state) 
@@ -41,10 +43,14 @@ module combined_violations();
             out <= Data;
         end
     end
+
+
     //unreachable State
-    always @(posedge clk) begin
+    always @(posedge clk) 
+    begin
         current_state <= next_state;
     end
+
     always @(*) begin
         case (current_state)
             S1: begin
@@ -59,6 +65,26 @@ module combined_violations();
         endcase
     end
     
+    //non full case
+     always @* 
+     begin
+        case(x)
+            2'b00: y = 1'b00;
+            2'b01: y = 1'b01;
+            // Missing cases for '10' & '11'
+        endcase
+    end
+
+    //non parallel case
+        always @* 
+     begin
+        case(x)
+            2'b00: y = 1'b00;
+            2'b0?: y = 1'b01;
+            2'b?0: y = 1'b10;
+            default: y = 1'b11;
+        endcase
+    end
 
 
 endmodule
