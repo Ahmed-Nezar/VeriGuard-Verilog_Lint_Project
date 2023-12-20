@@ -122,12 +122,3 @@ module ArithmeticOverflow();
         result = a + b; // Potential overflow when adding 'a' and 'b'
     end
 endmodule
-
-module IntegerOverflow();
-    reg [31:0] res;
-
-    always @(*)
-    begin
-        res = 32'hffffffff + 32'h1; // Overflow when adding these values
-    end
-endmodule
