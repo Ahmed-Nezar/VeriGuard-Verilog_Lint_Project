@@ -121,10 +121,11 @@ module MultipleDrivers(myIn, outputVar);
     end
 endmodule
 
+module IntegerOverflow();
+    reg [31:0] res;
 
-module ArithmeticOverflow(a,b,result);
-    input reg [3:0] a, b;
-    output reg [3:0] result;
-    
-    assign result = a + b;
+    always @(*)
+    begin
+        res = 32'hffffffff + 32'h1; // Overflow when adding these values
+    end
 endmodule
