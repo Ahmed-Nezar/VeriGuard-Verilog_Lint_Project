@@ -120,3 +120,10 @@ module MultipleDrivers(myIn, outputVar);
         outputVar = myIn;
     end
 endmodule
+
+module ArithmeticOverflow(a,b,result);
+    input reg [3:0] a, b;
+    output reg [3:0] result;
+    
+    assign result = a + b;
+endmodule
