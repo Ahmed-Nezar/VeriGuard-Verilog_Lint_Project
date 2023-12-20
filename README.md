@@ -14,7 +14,6 @@ Each module in this collection showcases a different type of violation or issue:
 6. **NonParallelCase**: Shows issues with non-parallel case statements.
 7. **MultipleDrivers**: Demonstrates the problem of multiple drivers for a single wire.
 8. **ArithmeticOverflow**: Shows potential overflow in arithmetic operations with fixed-size registers.
-9. **IntegerOverflow**: Similar to ArithmeticOverflow, but with a larger bit-width to illustrate integer overflow.
 
 ## File Description
 - Each module is named according to the violation it demonstrates and is contained in its own Verilog file.
