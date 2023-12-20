@@ -1,7 +1,7 @@
-module UnreachableBlocks();
+module UnreachableBlocks(data_out);
+    output reg data_out;
     reg reach;
     wire state;
-    wire data;
 
     initial 
     begin
@@ -12,34 +12,37 @@ module UnreachableBlocks();
     begin
         if (reach == 2'b0) 
         begin
-            data <= 1'b1;
+            data_out = 1'b1;
         end 
+        else 
+        begin
+            data_out = 1'b0;
+        end
     end
 endmodule
 
-module UninitializedRegister();
-    wire data;
-
-    initial 
-    begin
-        $display("%b", data); 
-    end
+module UninitializedRegister(data_out);
+    reg data;
+    output reg data_out;
+    assign data_out = data;
 endmodule
 
-module InferringLatches();
-    reg out;
-    wire enable, Data;
+module InferringLatches(enable, Data, out);
+    input wire enable, Data
+    output reg out;
 
     always @(enable) 
     begin
         if (enable) 
         begin
-            out <= Data;
+            out = Data;
         end
     end
 endmodule
 
-module UnreachableState(input clk);
+module UnreachableState(clk, state_out);
+    input clk;
+    output reg [1:0] state_out;
     reg [1:0] current_state, next_state;
     localparam [1:0] S1 = 2'b00 ;
     localparam [1:0] S2 = 2'b01 ;
@@ -65,12 +68,14 @@ module UnreachableState(input clk);
             begin
                 next_state <= S1;
             end
-
         endcase
+        state_out = current_state;
+
     end
 endmodule
 
-module NonFullCase();
+module NonFullCase(y_out);
+    output reg [1:0] y_out;
     reg [1:0] x, y;
 
     always @(*) 
@@ -80,10 +85,12 @@ module NonFullCase();
             2'b01: y = 1'b01;
             // Missing cases for '10' & '11'
         endcase
+        y_out = y;
     end
 endmodule
 
-module NonParallelCase();
+module NonParallelCase(y_out);
+    output reg [1:0] y_out;
     reg [1:0] x, y;
 
     always @(*) 
@@ -94,40 +101,30 @@ module NonParallelCase();
             2'b?0: y = 1'b10;
             default: y = 1'b11;
         endcase
+        y_out = y;
     end
 endmodule
 
-module MultipleDrivers(input [1:0] myIn);
-    wire myOut;
+module MultipleDrivers(myIn, outputVar);
+    input [1:0] myIn;
+    output reg [1:0] outputVar;
     reg myReg;
 
-    assign myOut = myIn;
-    assign myOut = 1'b1;
-
     always @(*) 
     begin
-        myReg = myReg + 1;
-    end
-    always @(*)
-    begin
+        myReg = myReg + 1; 
         myReg = 1'b0;
     end
-endmodule
-
-module ArithmeticOverflow();
-    reg [3:0] a, b, result;
-
     always @(*) 
     begin
-        result = a + b; // Potential overflow when adding 'a' and 'b'
+        outputVar = myIn;
     end
 endmodule
 
-module IntegerOverflow();
-    reg [31:0] res;
 
-    always @(*)
-    begin
-        res = 32'hffffffff + 32'h1; // Overflow when adding these values
-    end
+module ArithmeticOverflow(a,b,result);
+    input reg [3:0] a, b;
+    output reg [3:0] result;
+    
+    assign result = a + b;
 endmodule
