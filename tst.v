@@ -64,7 +64,7 @@ module UnreachableState(clk, state_out);
             begin
                 next_state <= S1;
             end
-            S3
+            S3:
             begin
                 next_state <= S1;
             end
