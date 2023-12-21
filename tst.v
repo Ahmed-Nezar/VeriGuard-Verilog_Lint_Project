@@ -105,19 +105,22 @@ module NonParallelCase(y_out);
     end
 endmodule
 
-module MultipleDrivers(myIn, outputVar);
+module MultipleDrivers(input [1:0] x, output out);
     input [1:0] myIn;
-    output reg [1:0] outputVar;
-    reg myReg;
+     reg y;
+    
+    // In the 2 following lines, out is multdriven by two assign statements
+    assign out = x;
+    assign out = 0'b1;
 
-    always @(*) 
+    // In the 2 following always blocks, y is multidriven
+    always @(*)
     begin
-        myReg = myReg + 1; 
-        myReg = 1'b0;
+        y = y + 1;
     end
-    always @(*) 
+    always @(*)
     begin
-        outputVar = myIn;
+        y = 1'b0;
     end
 endmodule
 
