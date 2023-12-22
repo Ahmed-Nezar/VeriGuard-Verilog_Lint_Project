@@ -1,3 +1,48 @@
+module n1 (A);
+input reg A;
+always @(*) begin
+    case (A):
+        1'b0: A = 1'b1;
+        1'b1: A = 1'b0;
+    endcase
+end
+    
+endmodule
+
+module n2 (A);
+input reg [1:0] A;
+always @(*) begin
+    case (A):
+        1'b0: A = 1'b1;
+        1'b1: A = 1'b0;
+    endcase
+end
+    
+endmodule
+
+module n3 (A);
+input reg [3:0] A;
+always @(*) begin
+    casez (A): // synopsys full_case parallel_case
+        4'b???1: F = 2'b00;
+        4'b??1?: F = 2'b01;
+        4'b?1??: F = 2'b10;
+        4'bl???: F = 2'b11;
+    endcase
+end
+    
+endmodule
+
+module n4 (t);
+input reg [3:0] t;
+always @(*) begin
+    case (t): // synopsys full_case
+        4'b0000: t = 4'b0001;
+        4'b0001: t = 4'b0010;
+    endcase
+end
+endmodule
+
 module UnreachableBlocks(data_out);
     output reg data_out;
     reg reach;
@@ -74,13 +119,13 @@ module UnreachableState(clk, state_out);
     end
 endmodule
 
-module NonFullCase(y_out);
+module n5(y_out);
     output reg [1:0] y_out;
     reg [1:0] x, y;
 
     always @(*) 
     begin
-        case(x)
+        case(x):
             2'b00: y = 1'b00;
             2'b01: y = 1'b01;
             // Missing cases for '10' & '11'
@@ -89,7 +134,8 @@ module NonFullCase(y_out);
     end
 endmodule
 
-module NonParallelCase(y_out);
+
+module n6(y_out); // full_case
     output reg [1:0] y_out;
     reg [1:0] x, y;
 
