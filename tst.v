@@ -130,3 +130,19 @@ module ArithmeticOverflow(a,b,result);
     
     assign result = a + b;
 endmodule
+
+module FeedbackLoopExample(clk, rst, data_out);
+    input clk, rst;
+    output reg data_out;
+    reg [3:0] counter;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            counter <= 4'b0000;
+            data_out <= 1'b0;
+        end else begin
+            counter <= counter + 1;
+            data_out <= counter[0];
+        end
+    end
+endmodule
