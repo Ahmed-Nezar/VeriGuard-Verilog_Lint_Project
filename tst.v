@@ -182,11 +182,11 @@ module ArithmeticOverflow(a,b,result);
 endmodule
 
 module CombinationalFeedbackLoop(a, b);
-input a;
-reg b;
+    input a;
+    reg b;
 
-always @(*) 
-begin
-  b = b + a; 
-end
+    always @(*) 
+    begin
+    b = b + a; 
+    end
 endmodule
