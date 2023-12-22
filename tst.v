@@ -181,20 +181,12 @@ module ArithmeticOverflow(a,b,result);
     assign result = a + b;
 endmodule
 
-module CombinationalFeedbackLoop(input wire a, input wire b, output reg out);
-    reg internal_signal;
+module CombinationalFeedbackLoop(a, b);
+input a;
+reg b;
 
-    always @(*) 
-    begin
-        if (internal_signal) begin
-            out = a;
-        end else begin
-            out = b;
-        end
-    end
-
-    always @(*)
-    begin
-        internal_signal = a & b;
-    end
+always @(*) 
+begin
+  b = b + a; 
+end
 endmodule
