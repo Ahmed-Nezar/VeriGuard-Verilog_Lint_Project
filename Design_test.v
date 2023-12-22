@@ -1,6 +1,7 @@
 module n1 (A);
 input reg A;
-always @(*) begin
+always @(*) 
+begin
     case (A):
         1'b0: A = 1'b1;
         1'b1: A = 1'b0;
@@ -11,7 +12,8 @@ endmodule
 
 module n2 (A);
 input reg [1:0] A;
-always @(*) begin
+always @(*)
+ begin
     case (A):
         1'b0: A = 1'b1;
         1'b1: A = 1'b0;
@@ -22,7 +24,8 @@ endmodule
 
 module n3 (A);
 input reg [3:0] A;
-always @(*) begin
+always @(*)
+begin
     casez (A): // synopsys full_case parallel_case
         4'b???1: F = 2'b00;
         4'b??1?: F = 2'b01;
@@ -35,7 +38,8 @@ endmodule
 
 module n4 (t);
 input reg [3:0] t;
-always @(*) begin
+always @(*)
+begin
     case (t): // synopsys full_case
         4'b0000: t = 4'b0001;
         4'b0001: t = 4'b0010;
@@ -177,18 +181,12 @@ module ArithmeticOverflow(a,b,result);
     assign result = a + b;
 endmodule
 
-module FeedbackLoopExample(clk, rst, data_out);
-    input clk, rst;
-    output reg data_out;
-    reg [3:0] counter;
+module CombinationalFeedbackLoop(a, b);
+    input a;
+    reg b;
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            counter <= 4'b0000;
-            data_out <= 1'b0;
-        end else begin
-            counter <= counter + 1;
-            data_out <= counter[0];
-        end
+    always @(*) 
+    begin
+    b = b + a; 
     end
 endmodule
