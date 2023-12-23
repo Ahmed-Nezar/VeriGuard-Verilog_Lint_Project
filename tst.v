@@ -10,6 +10,20 @@ end
     
 endmodule
 
+module ExciplitDefault (A);
+input reg [3:0] A;
+reg [1:0] B;
+B = 2'b00;
+always @(*) 
+begin
+    case (A):
+        4'b0: B = 2'b1;
+        4'b1: B = 2'b0;
+    endcase
+end
+    
+endmodule
+
 module n2 (A);
 input reg [1:0] A;
 always @(*)
