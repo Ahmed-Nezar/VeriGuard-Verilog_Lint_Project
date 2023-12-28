@@ -138,6 +138,35 @@ module Incomplete_Case (y_out);
     end
 endmodule
 
+module NonParallelZ (x);
+    input [1:0] x;
+    reg [1:0] y;
+    always @(*)
+    begin
+        casez (x)
+            2'b??: y = 1'b00;
+            2'b??: y = 1'b01;
+            2'b??: y = 1'b10;
+            2'b??: y = 1'b11;
+        endcase
+    end
+    
+endmodule
+
+module NonParallelX (x);
+    input [1:0] x;
+    reg [1:0] y;
+    always @(*)
+    begin
+        casex (x)
+            2'bxx: y = 1'b00;
+            2'bxx: y = 1'b01;
+            2'bxx: y = 1'b10;
+            2'bxx: y = 1'b11;
+        endcase
+    end
+    
+endmodule
 
 module Full_Case (y_out); // full_case
     output reg [1:0] y_out;
