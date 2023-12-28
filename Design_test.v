@@ -1,4 +1,4 @@
-module n1 (A);
+module Edge_Cases (A);
 input reg A;
 always @(*) 
 begin
@@ -10,7 +10,7 @@ end
     
 endmodule
 
-module n2 (A);
+module Vector_Input (A);
 input reg [1:0] A;
 always @(*)
  begin
@@ -22,7 +22,7 @@ end
     
 endmodule
 
-module n3 (A);
+module CaseZ_Parallel_Case (A);
 input reg [3:0] A;
 always @(*)
 begin
@@ -36,7 +36,7 @@ end
     
 endmodule
 
-module n4 (t);
+module Sequential_Case (t);
 input reg [3:0] t;
 always @(*)
 begin
@@ -123,7 +123,7 @@ module UnreachableState(clk, state_out);
     end
 endmodule
 
-module n5(y_out);
+module Incomplete_Case (y_out);
     output reg [1:0] y_out;
     reg [1:0] x, y;
 
@@ -139,7 +139,7 @@ module n5(y_out);
 endmodule
 
 
-module n6(y_out); // full_case
+module Full_Case (y_out); // full_case
     output reg [1:0] y_out;
     reg [1:0] x, y;
 
