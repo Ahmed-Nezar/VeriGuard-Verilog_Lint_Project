@@ -150,7 +150,6 @@ module NonParallelZ (x);
             2'b??: y = 1'b11;
         endcase
     end
-    
 endmodule
 
 module NonParallelX (x);
@@ -165,7 +164,6 @@ module NonParallelX (x);
             2'bxx: y = 1'b11;
         endcase
     end
-    
 endmodule
 
 module Full_Case (y_out); // full_case
@@ -186,7 +184,7 @@ endmodule
 
 module MultipleDrivers(input [1:0] x, output out);
     input [1:0] myIn;
-     reg y;
+    reg y;
     
     // In the 2 following lines, out is multdriven by two assign statements
     assign out = x;
