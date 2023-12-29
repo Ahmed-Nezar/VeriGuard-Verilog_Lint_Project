@@ -1,6 +1,7 @@
 
 Non-Full Case
-Module 2 : module Vector_Input (A);
+Line Number : 17
+Module 2 : module Vector_Input (A); 
 Size of reg "A" : 2
 Number of variations : 2
 Expected number of variations : 4
@@ -8,6 +9,7 @@ Number of variations is not equal to expected number of variations
 =====================================
 
 Non-Full Case
+Line Number : 107
 Module 8 : module UnreachableState(clk, state_out);
 Size of reg "current_state" : 2
 Number of variations : 3
@@ -16,44 +18,49 @@ Number of variations is not equal to expected number of variations
 =====================================
 
 Non-Full Case
-Module 9 : module Incomplete_Case (y_out);
+Line Number : 132
+Module 9 : module Incomplete_Case (y_out); 
 Size of reg "x" : 2
 Number of variations : 2
 Expected number of variations : 4
 Number of variations is not equal to expected number of variations
 =====================================
 
-Module Name: module UninitializedRegister(data_out);
+Module Name: module UninitializedRegister(data_out); 
+Line Number : 76
 Reg name: "data"
 Possible Uninitialized reg
 =====================================
 
 Module Name: module UnreachableState(clk, state_out);
+Line Number : 102
 Reg name: "next_state"
 Possible Uninitialized reg
 =====================================
 
-Module Name: module MultipleDrivers(input [1:0] x, output out);
+Module Name: module MultipleDrivers(input [1:0] x, output out); 
+Line Number : 196
 Reg name: "y"
 Possible Uninitialized reg
 =====================================
 
-Module Name: module CombinationalFeedbackLoop(a, b);
+Module Name: module CombinationalFeedbackLoop(a, b); 
+Line Number : 217
 Reg name: "b"
 Possible Uninitialized reg
 =====================================
 May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 51
 Reason: Signal(s) missing in the sensitivity list: state
 =====================================
-May Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 71
+May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 71
 Reason: Signal(s) missing in the sensitivity list: enable
 =====================================
 
-May Infer Latch in module 7,: module InferringLatches(enable, Data, out);, line: 75
+May Infer Latch in module 7,: module InferringLatches(enable, Data, out); , line: 75
 Reason: Missing initial condition
 Missing Initial Condition Line: out = Data;
 =====================================
-Infer Latch in module 7, : module InferringLatches(enable, Data, out);, line: 71
+Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 71
 Reason: 'if' statement without 'else' detected
 =====================================
 full list
@@ -71,7 +78,7 @@ Reason: Missing initial condition
 Missing Initial Condition Line: state_out = current_state;
 =====================================
 
-May Infer Latch in module 9,: module Incomplete_Case (y_out);, line: 118
+May Infer Latch in module 9,: module Incomplete_Case (y_out); , line: 118
 Reason: Missing initial condition
 Missing Initial Condition Line: y_out = y;
 =====================================
@@ -81,7 +88,7 @@ Reason: Missing initial condition
 Missing Initial Condition Line: y_out = y;
 =====================================
 
-May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b);, line: 183
+May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b); , line: 183
 Reason: Combinational Feedback loop detected
 =====================================
 
@@ -96,21 +103,24 @@ Assign Statements: [("assign out = 0'b1;", 'out')]
 Multidriven Variables: {'out'}
 =====================
 
-Possible Arithmetic Overflow in module 13 : module MultipleDrivers(input [1:0] x, output out);
+Possible Arithmetic Overflow in module 13 : module MultipleDrivers(input [1:0] x, output out); 
+Line Number : 196
 Line: y = y + 1;
 Left side size: 1
 Right side size: 1
 Operation List: [[['y'], ['y', '+', '1']]]
 =====================
 
-Possible Arithmetic Overflow in module 14 : module ArithmeticOverflow(a,b,result);
+Possible Arithmetic Overflow in module 14 : module ArithmeticOverflow(a,b,result); 
+Line Number : 208
 Line: assign result = a + b;
 Left side size: 4
 Right side size: 4
 Operation List: [[['assign', 'result'], ['a', '+', 'b']]]
 =====================
 
-Possible Arithmetic Overflow in module 15 : module CombinationalFeedbackLoop(a, b);
+Possible Arithmetic Overflow in module 15 : module CombinationalFeedbackLoop(a, b); 
+Line Number : 217
 Line: b = b + a;
 Left side size: 1
 Right side size: 1
@@ -118,13 +128,16 @@ Operation List: [[['b'], ['b', '+', 'a']]]
 =====================
 
 Non-Parallel Case:
-Module 10 : module NonParallelZ (x);
+Module 10 : module NonParallelZ (x); 
+Line Number : 146
 =====================================
 
 Non-Parallel Case:
-Module 11 : module NonParallelX (x);
+Module 11 : module NonParallelX (x); 
+Line Number : 160
 =====================================
 
 Non-Parallel Case:
 Module 12 : module Full_Case (y_out); 
+Line Number : 175
 =====================================
