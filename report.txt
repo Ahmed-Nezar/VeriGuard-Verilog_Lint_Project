@@ -98,7 +98,7 @@ line 62: if (reach == 2'b0)
 Variable 'reach' is initialized to 1'b1, but the condition checks for 2'b0.
 =====================================
 
-Module 13:
+Module 13: module MultipleDrivers(input [1:0] x, output out); 
 Always Block: ['always', 'begin', 'y = y + 1;', 'end']
 Line Number : 196
 Always Block: ['always', 'begin', "y = 1'b0;", 'end']
@@ -106,7 +106,7 @@ Line Number : 200
 Multidriven Variables: {'y'}
 =====================
 
-Module 13:
+Module 13: module MultipleDrivers(input [1:0] x, output out); 
 Line Number : 191
 Assign Statements: [["assign out = 0'b1;", 'out']]
 Multidriven Variables: {'out'}
