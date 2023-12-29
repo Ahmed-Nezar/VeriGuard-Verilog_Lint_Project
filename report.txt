@@ -92,6 +92,12 @@ May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b); , line: 
 Reason: Combinational Feedback loop detected
 =====================================
 
+Module: UnreachableBlocks
+Unreachable Block
+line 62: if (reach == 2'b0)
+Variable 'reach' is initialized to 1'b1, but the condition checks for 2'b0.
+=====================================
+
 Module 13:
 Always Block: ['always', 'begin', 'y = y + 1;', 'end']
 Always Block: ['always', 'begin', "y = 1'b0;", 'end']
