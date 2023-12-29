@@ -49,46 +49,46 @@ Line Number : 217
 Reg name: "b"
 Possible Uninitialized reg
 =====================================
-May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 51
+May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 60
 Reason: Signal(s) missing in the sensitivity list: state
 =====================================
-May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 71
+May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 85
 Reason: Signal(s) missing in the sensitivity list: enable
 =====================================
 
-May Infer Latch in module 7,: module InferringLatches(enable, Data, out); , line: 75
+May Infer Latch in module 7,: module InferringLatches(enable, Data, out); , line: 87
 Reason: Missing initial condition
 Missing Initial Condition Line: out = Data;
 =====================================
-Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 71
+Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 85
 Reason: 'if' statement without 'else' detected
 =====================================
 full list
 
-May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 106
+May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 121
 Reason: Missing initial condition
 Missing Initial Condition Line: state_out = current_state;
 =====================================
-May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 86
+May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 107
 Reason: 'case' statement without 'default' detected
 =====================================
 
-May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 106
+May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 121
 Reason: Missing initial condition
 Missing Initial Condition Line: state_out = current_state;
 =====================================
 
-May Infer Latch in module 9,: module Incomplete_Case (y_out); , line: 118
+May Infer Latch in module 9,: module Incomplete_Case (y_out); , line: 137
 Reason: Missing initial condition
 Missing Initial Condition Line: y_out = y;
 =====================================
 
-May Infer Latch in module 12,: module Full_Case (y_out); , line: 158
+May Infer Latch in module 12,: module Full_Case (y_out); , line: 181
 Reason: Missing initial condition
 Missing Initial Condition Line: y_out = y;
 =====================================
 
-May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b); , line: 183
+May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b); , line: 215
 Reason: Combinational Feedback loop detected
 =====================================
 
