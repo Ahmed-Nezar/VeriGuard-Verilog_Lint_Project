@@ -1,3 +1,4 @@
+
 Non-Full Case
 Module 2 : module Vector_Input (A);
 Size of reg "A" : 2
@@ -5,6 +6,7 @@ Number of variations : 2
 Expected number of variations : 4
 Number of variations is not equal to expected number of variations
 =====================================
+
 Non-Full Case
 Module 8 : module UnreachableState(clk, state_out);
 Size of reg "current_state" : 2
@@ -12,6 +14,7 @@ Number of variations : 3
 Expected number of variations : 4
 Number of variations is not equal to expected number of variations
 =====================================
+
 Non-Full Case
 Module 9 : module Incomplete_Case (y_out);
 Size of reg "x" : 2
