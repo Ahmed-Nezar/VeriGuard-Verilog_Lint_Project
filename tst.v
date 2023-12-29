@@ -203,7 +203,7 @@ endmodule
 
 module ArithmeticOverflow(a,b,result); // overflow error when doing operation
     input reg [3:0] a, b;
-    output reg [3:0] result;
+    output reg [3:0] result = 0;
     
     assign result = a + b;
 endmodule
