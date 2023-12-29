@@ -1,4 +1,4 @@
-module Edge_Cases (A);
+module Edge_Cases (A); // No Violations
 input reg A;
 always @(*) 
 begin
@@ -10,7 +10,7 @@ end
     
 endmodule
 
-module Vector_Input (A);
+module Vector_Input (A); // Non-Full case
 input reg [1:0] A;
 always @(*)
  begin
@@ -22,7 +22,7 @@ end
     
 endmodule
 
-module CaseZ_Parallel_Case (A);
+module CaseZ_Parallel_Case (A); // No violations
 input reg [3:0] A;
 always @(*)
 begin
@@ -36,7 +36,7 @@ end
     
 endmodule
 
-module Sequential_Case (t);
+module Sequential_Case (t); // No Violations
 input reg [3:0] t;
 always @(*)
 begin
@@ -70,13 +70,13 @@ module UnreachableBlocks(data_out);
     end
 endmodule
 
-module UninitializedRegister(data_out);
+module UninitializedRegister(data_out); // Uninitialized register error
     reg data;
     output reg data_out;
     assign data_out = data;
 endmodule
 
-module InferringLatches(enable, Data, out);
+module InferringLatches(enable, Data, out); // inferring latches error
     input wire enable, Data
     output reg out;
 
@@ -89,7 +89,7 @@ module InferringLatches(enable, Data, out);
     end
 endmodule
 
-module UnreachableState(clk, state_out);
+module UnreachableState(clk, state_out); 
     input clk;
     output reg [1:0] state_out;
     reg [1:0] current_state, next_state;
@@ -123,7 +123,7 @@ module UnreachableState(clk, state_out);
     end
 endmodule
 
-module Incomplete_Case (y_out);
+module Incomplete_Case (y_out); // non-full_case
     output reg [1:0] y_out;
     reg [1:0] x, y;
 
@@ -138,7 +138,7 @@ module Incomplete_Case (y_out);
     end
 endmodule
 
-module NonParallelZ (x);
+module NonParallelZ (x); // non-parallel_case
     input [1:0] x;
     reg [1:0] y;
     always @(*)
@@ -152,7 +152,7 @@ module NonParallelZ (x);
     end
 endmodule
 
-module NonParallelX (x);
+module NonParallelX (x); // non-parallel_case
     input [1:0] x;
     reg [1:0] y;
     always @(*)
@@ -182,7 +182,7 @@ module Full_Case (y_out); // full_case
     end
 endmodule
 
-module MultipleDrivers(input [1:0] x, output out);
+module MultipleDrivers(input [1:0] x, output out); // Multiple Drivers error
     input [1:0] myIn;
     reg y;
     
@@ -201,14 +201,14 @@ module MultipleDrivers(input [1:0] x, output out);
     end
 endmodule
 
-module ArithmeticOverflow(a,b,result);
+module ArithmeticOverflow(a,b,result); // overflow error when doing operation
     input reg [3:0] a, b;
     output reg [3:0] result;
     
     assign result = a + b;
 endmodule
 
-module CombinationalFeedbackLoop(a, b);
+module CombinationalFeedbackLoop(a, b); // Combinational feedback loop error that infer latches
     input a;
     reg b;
 
