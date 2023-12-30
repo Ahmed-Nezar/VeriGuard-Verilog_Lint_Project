@@ -201,6 +201,20 @@ module MultipleDrivers(input [1:0] x, output out); // Multiple Drivers error
     end
 endmodule
 
+module MultipleDrivers2 (input [1:0] x, output out2); // Multiple Drivers error
+    input [1:0] myIn;
+    
+
+    assign out2 = 0'b1;
+
+    // In the 2 following always blocks, y is multidriven
+    always @(*)
+    begin
+        out2 = myIn[0];
+    end
+    
+endmodule
+
 module ArithmeticOverflow(a,b,result); // overflow error when doing operation
     input reg [3:0] a, b;
     output reg [3:0] result = 0;

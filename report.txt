@@ -57,7 +57,7 @@ Possible Uninitialized reg
 =====================================
 
 Module Name: module CombinationalFeedbackLoop(a, b); 
-Line Number : 217
+Line Number : 231
 Reg name: "b"
 Possible Uninitialized reg
 =====================================
@@ -86,7 +86,7 @@ May Infer Latch in module 9,: module Incomplete_Case (y_out); , line: 132
 Reason: 'case' statement without 'default' detected
 =====================================
 
-May Infer Latch in module 15, : module CombinationalFeedbackLoop(a, b); , line: 215
+May Infer Latch in module 16, : module CombinationalFeedbackLoop(a, b); , line: 229
 Reason: Combinational Feedback loop detected
 =====================================
 
@@ -109,6 +109,11 @@ Line Number : 191
 Assign Statements: [["assign out = 0'b1;", 'out']]
 Multidriven Variables: {'out'}
 =====================
+Module 14: Variable 'out2' is multidriven.
+Assign Statements: [["assign out2 = 0'b1;", 'out2']]
+Line Number : 208
+Multidriven Variables: {'out2'}
+=====================================
 
 Possible Arithmetic Overflow in module 13 : module MultipleDrivers(input [1:0] x, output out); 
 Line Number : 196
@@ -118,16 +123,16 @@ Right side size: 1
 Operation List: [[['y'], ['y', '+', '1']]]
 =====================
 
-Possible Arithmetic Overflow in module 14 : module ArithmeticOverflow(a,b,result); 
-Line Number : 208
+Possible Arithmetic Overflow in module 15 : module ArithmeticOverflow(a,b,result); 
+Line Number : 222
 Line: assign result = a + b;
 Left side size: 4
 Right side size: 4
 Operation List: [[['assign', 'result'], ['a', '+', 'b']]]
 =====================
 
-Possible Arithmetic Overflow in module 15 : module CombinationalFeedbackLoop(a, b); 
-Line Number : 217
+Possible Arithmetic Overflow in module 16 : module CombinationalFeedbackLoop(a, b); 
+Line Number : 231
 Line: b = b + a;
 Left side size: 1
 Right side size: 1
