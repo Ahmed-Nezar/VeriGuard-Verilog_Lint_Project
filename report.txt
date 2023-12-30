@@ -68,15 +68,14 @@ May Infer Latch in module 2,: module Vector_Input (A); , line: 17
 Reason: 'case' statement without 'default' detected
 =====================================
 May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 60
-Reason: Signal(s) missing in the sensitivity list: state
+Reason: Signal(s) missing in the sensitivity list: data_out
 =====================================
 May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 85
-Reason: Signal(s) missing in the sensitivity list: enable
+Reason: Signal(s) missing in the sensitivity list: out, Data
 =====================================
 Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 85
 Reason: 'if' statement without 'else' detected
 =====================================
-full list
 May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 107
 Reason: 'case' statement without 'default' detected
 =====================================
