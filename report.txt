@@ -38,6 +38,18 @@ Reg name: "next_state"
 Possible Uninitialized reg
 =====================================
 
+Module Name: module Incomplete_Case (y_out); 
+Line Number : 132
+Reg name: "x"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module Full_Case (y_out); 
+Line Number : 175
+Reg name: "x"
+Possible Uninitialized reg
+=====================================
+
 Module Name: module MultipleDrivers(input [1:0] x, output out); 
 Line Number : 196
 Reg name: "y"
