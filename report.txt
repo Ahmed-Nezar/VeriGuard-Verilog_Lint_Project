@@ -1,0 +1,155 @@
+
+Non-Full Case
+Line Number : 17
+Module 2 : module Vector_Input (A); 
+Size of reg "A" : 2
+Number of variations : 2
+Expected number of variations : 4
+Number of variations is not equal to expected number of variations
+=====================================
+
+Non-Full Case
+Line Number : 107
+Module 8 : module UnreachableState(clk, state_out);
+Size of reg "current_state" : 2
+Number of variations : 3
+Expected number of variations : 4
+Number of variations is not equal to expected number of variations
+=====================================
+
+Non-Full Case
+Line Number : 132
+Module 9 : module Incomplete_Case (y_out); 
+Size of reg "x" : 2
+Number of variations : 2
+Expected number of variations : 4
+Number of variations is not equal to expected number of variations
+=====================================
+
+Module Name: module UninitializedRegister(data_out); 
+Line Number : 76
+Reg name: "data"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module UnreachableState(clk, state_out);
+Line Number : 102
+Reg name: "next_state"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module Incomplete_Case (y_out); 
+Line Number : 132
+Reg name: "x"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module Full_Case (y_out); 
+Line Number : 175
+Reg name: "x"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module MultipleDrivers(input [1:0] x, output out); 
+Line Number : 196
+Reg name: "y"
+Possible Uninitialized reg
+=====================================
+
+Module Name: module CombinationalFeedbackLoop(a, b); 
+Line Number : 231
+Reg name: "b"
+Possible Uninitialized reg
+=====================================
+May Infer Latch in module 1,: module Edge_Cases (A); , line: 17
+Reason: 'case' statement without 'default' detected
+=====================================
+May Infer Latch in module 2,: module Vector_Input (A); , line: 17
+Reason: 'case' statement without 'default' detected
+=====================================
+May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 60
+Reason: Signal(s) missing in the sensitivity list: data_out
+=====================================
+May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 85
+Reason: Signal(s) missing in the sensitivity list: out, Data
+=====================================
+Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 85
+Reason: 'if' statement without 'else' detected
+=====================================
+May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 107
+Reason: 'case' statement without 'default' detected
+=====================================
+May Infer Latch in module 8,: module UnreachableState(clk, state_out);, line: 107
+Reason: 'case' statement without 'default' detected
+=====================================
+May Infer Latch in module 9,: module Incomplete_Case (y_out); , line: 132
+Reason: 'case' statement without 'default' detected
+=====================================
+
+May Infer Latch in module 16, : module CombinationalFeedbackLoop(a, b); , line: 229
+Reason: Combinational Feedback loop detected
+=====================================
+
+Module: UnreachableBlocks
+Unreachable Block
+line 62: if (reach == 2'b0)
+Variable 'reach' is initialized to 1'b1, but the condition checks for 2'b0.
+=====================================
+
+Module 13: module MultipleDrivers(input [1:0] x, output out); 
+Always Block: ['always', 'begin', 'y = y + 1;', 'end']
+Line Number : 196
+Always Block: ['always', 'begin', "y = 1'b0;", 'end']
+Line Number : 200
+Multidriven Variables: {'y'}
+=====================
+
+Module 13: module MultipleDrivers(input [1:0] x, output out); 
+Line Number : 191
+Assign Statements: [["assign out = 0'b1;", 'out']]
+Multidriven Variables: {'out'}
+=====================
+Module 14: Variable 'out2' is multidriven.
+Assign Statements: [["assign out2 = 0'b1;", 'out2']]
+Line Number : 208
+Multidriven Variables: {'out2'}
+=====================================
+
+Possible Arithmetic Overflow in module 13 : module MultipleDrivers(input [1:0] x, output out); 
+Line Number : 196
+Line: y = y + 1;
+Left side size: 1
+Right side size: 1
+Operation List: [[['y'], ['y', '+', '1']]]
+=====================
+
+Possible Arithmetic Overflow in module 15 : module ArithmeticOverflow(a,b,result); 
+Line Number : 222
+Line: assign result = a + b;
+Left side size: 4
+Right side size: 4
+Operation List: [[['assign', 'result'], ['a', '+', 'b']]]
+=====================
+
+Possible Arithmetic Overflow in module 16 : module CombinationalFeedbackLoop(a, b); 
+Line Number : 231
+Line: b = b + a;
+Left side size: 1
+Right side size: 1
+Operation List: [[['b'], ['b', '+', 'a']]]
+=====================
+
+Non-Parallel Case:
+Module 10 : module NonParallelZ (x); 
+Line Number : 146
+=====================================
+
+Non-Parallel Case:
+Module 11 : module NonParallelX (x); 
+Line Number : 160
+=====================================
+
+Non-Parallel Case:
+Module 12 : module Full_Case (y_out); 
+Line Number : 175
+=====================================
