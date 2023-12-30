@@ -711,6 +711,102 @@ def check_multidriven_variables_assign_statements(module_lists):
 # Example usage
 check_multidriven_variables_assign_statements(module_lists)
 
+def check_multidriven_variables_always_with_assign_statement(module_lists):
+    modules_with_multidriven_variables = set()
+
+    for module_index, module in enumerate(module_lists, start=1):
+        # Always blocks and their contents
+        always_blocks = []
+
+        # Extract contents of always blocks
+        inside_always = False
+        current_always_block = []
+        always_blocks_variables = []
+
+        for line in module:
+            if 'always' in line:
+                inside_always = True
+                current_always_block = ['always']
+            elif inside_always:
+                current_always_block.append(line.strip())
+                # extract variable name from always block
+                if '<=' in line :
+                    variable_name = line.split('<=')[0].strip()
+                    always_blocks_variables.append(variable_name)
+                    break
+                if '=' in line :
+                    variable_name = line.split('=')[0].strip()
+                    always_blocks_variables.append(variable_name)
+                    break
+
+
+        # Extracted variable names and sizes
+        assign_variables = set()
+        # Assign statements and assigned variables
+        assign_statements = []
+
+        for line in module:
+            # Check if the line contains an assign statement
+            if 'assign' in line:
+                parts = line.split()
+                assign_index = parts.index('assign')
+                assign_statements.append([line, variable_name])
+
+
+                # Extract the assigned variable name
+                if assign_index < len(parts) - 1:
+                    variable_name = parts[assign_index + 1].rstrip(';')
+                    # Check if the variable is already assigned in another statement
+                    if variable_name in assign_variables:
+                        assign_statements.append([line, variable_name])
+                    else:
+                        assign_variables.add(variable_name)
+
+
+        
+        # check for multidriven variables within the same module based on always block and assign statements
+        seen_variables = set()
+        tmp = ""
+        for variable in always_blocks_variables:
+            # Check if the variable is repeated (multidriven) in the same module
+            #print(assign_statements)
+            if variable in assign_variables:
+                seen_variables.add(variable)
+                print(f"Module {module_index}: Variable '{variable}' is multidriven.")
+                statement_lists.append(f"Module {module_index}: Variable '{variable}' is multidriven.")
+                print("Assign Statements:", assign_statements)
+                statement_lists.append("Assign Statements: " + str(assign_statements))
+                for n in assign_statements:
+                    for x in line_num_list:
+                        if "assign" in x[2]:
+                            # remove all except for variable name
+                            tmp = x[2].split("=")
+                            tmp = tmp[0].strip()
+                            tmp = tmp.split(" ")
+                            tmp = tmp[1]
+                            #print(tmp)
+                        if n[1] == tmp:
+                            line_num = x[1] + 1
+                            print("Line Number:", line_num)
+                            statement_lists.append("Line Number : " + str(line_num))
+                            break
+                print("Multidriven Variables:", seen_variables)
+                statement_lists.append("Multidriven Variables: " + str(seen_variables))
+                print("=====================================")
+                statement_lists.append("=====================================")
+            else:
+                assign_variables.add(variable)
+           
+
+            
+
+                                        
+        
+
+
+# Example usage
+check_multidriven_variables_always_with_assign_statement(module_lists)
+
 
 def checkArithmeticOverflow(module_lists):
     # extracting the variables from the module
