@@ -29,3 +29,22 @@ constructs
 - Teams will schedule a 20 minutes demo/slides using MS to deliver the project
 - Using whatever programming language you prefer or scripting language (Python, Perl, TCL,..)
 - You need to upload your executable, source code, document /slides describe the algorithm/approach used.
+
+## VeriGuard Lint
+### Parser:
+- The parser is implemented using the python.
+- It takes the verilog file as input and parse it to get the tokens.
+- The tokens are stored in a list.
+- The parser is implemented using the regular expressions.
+### Cases Handled:
+- Arithmetic Overflow
+- Unreachable Blocks
+- Un-initialized Register
+- Multi-Driven Bus/Register
+- Non Full/Parallel Case
+- Infer Latch
+### How to run:
+- Run the Verilog_Parser.py file using the command:
+```sh
+$ python Verilog_Parser.py
+```
