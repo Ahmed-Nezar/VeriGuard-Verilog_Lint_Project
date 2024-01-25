@@ -71,7 +71,7 @@ May Infer Latch in module 5, : module UnreachableBlocks(data_out); , line: 60
 Reason: Signal(s) missing in the sensitivity list: data_out
 =====================================
 May Infer Latch in module 7, : module InferringLatches(enable, Data, out);  , line: 85
-Reason: Signal(s) missing in the sensitivity list: out, Data
+Reason: Signal(s) missing in the sensitivity list: Data, out
 =====================================
 Infer Latch in module 7, : module InferringLatches(enable, Data, out); , line: 85
 Reason: 'if' statement without 'else' detected

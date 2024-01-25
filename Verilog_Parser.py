@@ -20,7 +20,7 @@ def file_reader(file_name):
     return x
 
 statement_lists = []
-file_path = 'tst.v'
+file_path = input("Please Enter Path of the file: ")
 
 verilog_code = file_reader(file_path)
     
