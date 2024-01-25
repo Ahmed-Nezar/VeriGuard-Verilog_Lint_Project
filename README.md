@@ -44,7 +44,10 @@ constructs
 - Non Full/Parallel Case
 - Infer Latch
 ### How to run:
+- Clone the repository.
 - Run the Verilog_Parser.py file using the command:
 ```sh
 $ python Verilog_Parser.py
 ```
+- Enter the verilog file name.
+- Then you will get the report containing the errors in the verilog file.
